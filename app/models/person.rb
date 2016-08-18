@@ -1,6 +1,9 @@
 class Person < ApplicationRecord
+  DEPARTMENTS = %w(Support Marketing Development Finance HR Legal).freeze
+
   validates :name, :job_title, presence: true, length: { maximum: 48 }
   validates :bio, presence: true, length: { maximum: 512 }
+  validates :department, inclusion: { in: DEPARTMENTS, message: 'does not exist' }
 
   scope :sorted, -> { order('lower(name)') }
 

@@ -13,6 +13,7 @@ class PeopleIntegrationTest < ActionDispatch::IntegrationTest
     fill_in('Name', with: new_name)
     fill_in('Job title', with: new_job_title)
     fill_in('Bio', with: new_bio)
+    fill_in('Department', with: 'Support')
     click_on 'Save'
     assert page.has_content? new_name
     assert page.has_content? new_name

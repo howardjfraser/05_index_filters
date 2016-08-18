@@ -45,6 +45,13 @@ class PersonTest < ActiveSupport::TestCase
     refute @person.valid?
   end
 
+  test 'department should be in list' do
+    @person.department = nil
+    refute @person.valid?
+    @person.department = 'unknown'
+    refute @person.valid?
+  end
+
   test 'first name' do
     assert @person.name == 'David Jones'
     assert @person.first_name == 'David'

@@ -11,6 +11,9 @@
   <%= label_or_error f, :bio %>
   <%= f.text_area :bio, rows: '3' %>
 
+  <%= label_or_error f, :department %>
+  <%= f.text_field :department  %>
+
   <div class="m-y-2">
     <%= f.button 'Save' %>
     <%= link_to 'Cancel', @person, class: 'btn btn-outline-success' %>
