@@ -22,5 +22,5 @@ module Base
   end
 end
 
-APP_NUMBER = '00'.freeze
-APP_NAME = 'Foundation'.freeze
+APP_NUMBER = '05'.freeze
+APP_NAME = 'Index Filters'.freeze
