@@ -6,6 +6,7 @@ class Person < ApplicationRecord
   validates :department, inclusion: { in: DEPARTMENTS, message: 'does not exist' }
 
   scope :sorted, -> { order('lower(name)') }
+  scope :department, -> (department) { sorted.where('lower(department) = ?', department.downcase) }
 
   def first_name
     name.split(' ')[0]

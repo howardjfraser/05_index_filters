@@ -42,4 +42,21 @@ class PeopleIntegrationTest < ActionDispatch::IntegrationTest
     assert page.has_content? new_bio
     assert page.has_content? "#{new_name} has been updated"
   end
+
+  test 'view all' do
+    visit '/people'
+    within '#people-list' do
+      assert page.has_content? 'Finance'
+      assert page.has_content? 'Support'
+    end
+  end
+
+  test 'view by department' do
+    visit '/people/department/finance'
+
+    within '#people-list' do
+      assert page.has_content? 'Finance'
+      refute page.has_content? 'Support'
+    end
+  end
 end

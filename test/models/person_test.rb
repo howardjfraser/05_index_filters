@@ -52,6 +52,13 @@ class PersonTest < ActiveSupport::TestCase
     refute @person.valid?
   end
 
+  test 'department scope' do
+    people = Person.department 'finance'
+    people.each do |p|
+      assert p.department = 'Finance'
+    end
+  end
+
   test 'first name' do
     assert @person.name == 'David Jones'
     assert @person.first_name == 'David'

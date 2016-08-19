@@ -6,7 +6,14 @@
   <label for="filter" class="sr-only">Filter</label>
   <input id="filter" type="text" class="search" placeholder="Filter&hellip;" autofocus="true" autocomplete="off"/>
 
-  <ul class="list list-unstyled">
+  <div class="m-b-1">
+    <%= link_to 'All', people_path, class: 'btn btn-outline-secondary btn-sm m-b-h' %>
+    <% Person::DEPARTMENTS.each do |d| %>
+      <%= link_to d, people_by_department_path(d.downcase), class: 'btn btn-outline-secondary btn-sm m-b-h' %>
+    <% end %>
+  </div>
+
+  <ul id="people-list" class="list list-unstyled">
     <%= render @people %>
   </ul>
 </div>
