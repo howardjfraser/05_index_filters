@@ -12,7 +12,7 @@
   <%= f.text_area :bio, rows: '3' %>
 
   <%= label_or_error f, :department %>
-  <%= f.text_field :department  %>
+  <%= f.select :department, Person::DEPARTMENTS.sort.collect { |dept| [ dept, dept ] }, {}, { class: 'custom-select' } %>
 
   <div class="m-y-2">
     <%= f.button 'Save' %>
