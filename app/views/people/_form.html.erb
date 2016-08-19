@@ -8,11 +8,11 @@
   <%= label_or_error f, :job_title %>
   <%= f.text_field :job_title, class: '' %>
 
-  <%= label_or_error f, :bio %>
-  <%= f.text_area :bio, rows: '3' %>
-
   <%= label_or_error f, :department %>
   <%= f.select :department, Person::DEPARTMENTS.sort.collect { |dept| [ dept, dept ] }, {}, { class: 'custom-select' } %>
+
+  <%= label_or_error f, :bio %>
+  <%= f.text_area :bio, rows: '3' %>
 
   <div class="m-y-2">
     <%= f.button 'Save' %>
