@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   def index
+    @scope = params[:scope]
     @people = params[:scope] ? Person.department(params[:scope]) : Person.all.sorted
   end
 

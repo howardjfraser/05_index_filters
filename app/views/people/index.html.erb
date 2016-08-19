@@ -7,9 +7,9 @@
   <input id="filter" type="text" class="search" placeholder="Filter&hellip;" autofocus="true" autocomplete="off"/>
 
   <div class="m-b-1">
-    <%= link_to 'All', people_path, class: 'btn btn-outline-secondary btn-sm m-b-h' %>
+    <%= link_to 'All', people_path, class: "btn-filter #{all_active? @scope }" %>
     <% Person::DEPARTMENTS.each do |d| %>
-      <%= link_to d, people_by_department_path(d.downcase), class: 'btn btn-outline-secondary btn-sm m-b-h' %>
+      <%= link_to d, people_by_department_path(d.downcase), class: "btn-filter #{active? d, @scope}" %>
     <% end %>
   </div>
 

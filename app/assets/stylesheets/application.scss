@@ -132,3 +132,15 @@ li {
   max-width: 28em;
   transform: rotate(-2deg);
 }
+
+.btn.selected {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.btn-filter {
+  @extend .btn;
+  @extend .btn-outline-secondary;
+  @extend .btn-sm;
+  @extend .m-b-h;
+}
