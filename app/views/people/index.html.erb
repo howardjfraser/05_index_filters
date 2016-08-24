@@ -1,19 +1,17 @@
 <% provide :button, link_to("Add New", new_person_path, class: 'btn btn-success pull-xs-right') %>
 <% provide :title, 'People' %>
 
-<div id="people">
+<div class="m-b-1">
+  <%= link_to 'All', people_path, class: "btn-filter #{all_active? @scope }" %>
+  <% Person::DEPARTMENTS.each do |d| %>
+    <%= link_to d, people_by_department_path(d.downcase), class: "btn-filter #{active? d, @scope}" %>
+  <% end %>
+</div>
 
-  <label for="filter" class="sr-only">Filter</label>
-  <input id="filter" type="text" class="search" placeholder="Filter&hellip;" autofocus="true" autocomplete="off"/>
+<ul id="people-list" class="list list-unstyled">
+  <%= render @people %>
+</ul>
 
-  <div class="m-b-1">
-    <%= link_to 'All', people_path, class: "btn-filter #{all_active? @scope }" %>
-    <% Person::DEPARTMENTS.each do |d| %>
-      <%= link_to d, people_by_department_path(d.downcase), class: "btn-filter #{active? d, @scope}" %>
-    <% end %>
-  </div>
-
-  <ul id="people-list" class="list list-unstyled">
-    <%= render @people %>
-  </ul>
+<div class="text-muted m-t-1">
+  <%= pluralize @people.count, 'person' %>
 </div>
