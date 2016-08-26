@@ -1,7 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @department = params[:department]
-    @people = @department ? Person.department(@department) : Person.all.sorted
+    @people = Person.department(params[:department])
   end
 
   def show
