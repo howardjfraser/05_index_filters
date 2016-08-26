@@ -7,7 +7,7 @@ class Person < ApplicationRecord
 
   scope :sorted, -> { order('lower(name)') }
 
-  scope :department, -> (department) do
+  def self.department(department)
     department.blank? ? sorted : sorted.where('lower(department) = ?', department.downcase)
   end
 
