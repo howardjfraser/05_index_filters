@@ -2,9 +2,9 @@
 <% provide :title, 'People' %>
 
 <div class="m-b-1">
-  <%= link_to 'All', people_path, class: "btn-filter #{all_active? @scope }" %>
+  <%= link_to 'All', people_path, class: "btn-filter #{all_active? @department }" %>
   <% Person::DEPARTMENTS.each do |d| %>
-    <%= link_to d, people_by_department_path(d.downcase), class: "btn-filter #{active? d, @scope}" %>
+    <%= link_to d, people_by_department_path(d.downcase), class: "btn-filter #{active? d, @department}" %>
   <% end %>
 </div>
 

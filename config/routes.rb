@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'notes#about'
 
-  get 'people/department/:scope' => 'people#index', as: :people_by_department
+  get 'people/department/:department' => 'people#index', as: :people_by_department
   get 'people/department', to: redirect('/people')
   resources :people
 end
