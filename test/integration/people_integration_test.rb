@@ -45,7 +45,7 @@ class PeopleIntegrationTest < ActionDispatch::IntegrationTest
 
   test 'view all' do
     visit '/people'
-    within '#people-list' do
+    within '#people' do
       assert page.has_content? 'Finance'
       assert page.has_content? 'Support'
     end
@@ -54,7 +54,7 @@ class PeopleIntegrationTest < ActionDispatch::IntegrationTest
   test 'view by department' do
     visit '/people/department/finance'
 
-    within '#people-list' do
+    within '#people' do
       assert page.has_content? 'Finance'
       refute page.has_content? 'Support'
     end
